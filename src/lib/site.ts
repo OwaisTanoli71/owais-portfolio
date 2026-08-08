@@ -7,7 +7,7 @@
 import { publicEnv } from "@/env";
 
 export const siteConfig = {
-  name: "Muhammad Owais Arshad — Personal Portfolio",
+  name: "Muhammad Owais Portfolio",
   description: "Personal portfolio of Muhammad Owais Arshad — AI Engineer, Computer Vision Developer, & Freelance Designer.",
   /**
    * Public origin, no trailing slash. Drives canonical URLs, OG tags, the
