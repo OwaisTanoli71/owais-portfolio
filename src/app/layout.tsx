@@ -1,0 +1,54 @@
+import type { Metadata, Viewport } from "next";
+import { Onest } from "next/font/google";
+
+import {
+  generateMetadata,
+  generateViewport,
+} from "@/utils/seo/generate-page-metadata";
+import { getSiteStructuredData } from "@/utils/seo/structured-data";
+
+import { LazyCookie } from "@/components/common/Cookie";
+import { AdaptiveGrid } from "@/components/common/grid";
+import { ReducedMotion } from "@/components/common/reduced-motion";
+import { ScrollLayout } from "@/layouts/scroll-layout";
+
+import "@/app/globals.css";
+
+const onest = Onest({
+  variable: "--font-onest",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const metadata: Metadata = generateMetadata();
+export const viewport: Viewport = generateViewport();
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/af/00000000000000003b9b12d8/l?primer=7cd2d5b69c453870e6e9999139b86b86f09658a0000000000000000000000000&fvd=n4&v=3" />
+        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/proxima-nova-2" />
+        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/futura-pt" />
+      </head>
+      <body className={`${onest.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getSiteStructuredData()),
+          }}
+        />
+        <ScrollLayout>
+          <AdaptiveGrid />
+          <ReducedMotion />
+          <LazyCookie />
+          {children}
+        </ScrollLayout>
+      </body>
+    </html>
+  );
+}
