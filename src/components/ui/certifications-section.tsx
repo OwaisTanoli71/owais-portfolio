@@ -328,7 +328,7 @@ export const CertificationsSection = () => {
         </div>
 
         {/* FEATURED SPOTLIGHT SHOWCASE CONTAINER */}
-        <div className="relative w-full bg-[#09090b] border border-white/15 rounded-3xl overflow-hidden mb-12 min-h-[560px] sm:min-h-[480px] lg:min-h-[420px] flex items-center shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
+        <div className="relative w-full bg-[#09090b] border border-white/15 rounded-3xl overflow-hidden mb-12 min-h-[640px] sm:min-h-[520px] lg:min-h-[420px] flex items-center shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
           {/* Top Highlight Line */}
           <div className="absolute top-0 left-12 right-12 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-20" />
 
@@ -341,26 +341,26 @@ export const CertificationsSection = () => {
                   (s, y) => `translate3d(0, ${y}px, 0) scale(${s})`
                 ),
               }}
-              className="w-full absolute inset-0 p-6 sm:p-8 md:p-12 z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center transform-gpu will-change-transform"
+              className="w-full absolute inset-0 p-5 sm:p-8 md:p-12 z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center transform-gpu will-change-transform overflow-y-auto lg:overflow-visible"
             >
               {/* Left Column: Certificate Meta & Information */}
-              <div className="lg:col-span-7 flex flex-col gap-6">
+              <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-6">
                 {/* Status & Category Badges */}
-                <div className="flex flex-wrap items-center gap-3">
-                  <div className="flex items-center gap-2 bg-white/[0.04] border border-white/15 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider text-foreground uppercase">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                  <div className="flex items-center gap-2 bg-white/[0.04] border border-white/15 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono tracking-wider text-foreground uppercase">
                     <FiCheckCircle className="w-3.5 h-3.5 text-accent shrink-0" />
                     <span>Verified Credential</span>
                   </div>
 
-                  <div className="flex items-center gap-2 bg-white/[0.04] border border-white/15 px-3.5 py-1.5 rounded-full text-xs font-sans font-semibold tracking-wide text-foreground/90">
+                  <div className="flex items-center gap-2 bg-white/[0.04] border border-white/15 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-sans font-semibold tracking-wide text-foreground/90">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                     <span>{cert.category}</span>
                   </div>
                 </div>
 
                 {/* Certificate Title */}
-                <div className="flex flex-col gap-2">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-tight">
+                <div className="flex flex-col gap-1 sm:gap-2">
+                  <h3 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-tight">
                     {cert.title}
                   </h3>
                   <div className="flex items-center gap-2 text-sm text-accent font-medium mt-1">

@@ -149,7 +149,7 @@ export const PhysicsSkills = () => {
           return (
             <div
               key={skill.name + i}
-              className={`skill-pill absolute top-0 left-0 px-6 py-3 font-bold tracking-tight rounded-full whitespace-nowrap shadow-xl border cursor-grab active:cursor-grabbing text-sm md:text-base lg:text-lg transition-colors
+              className={`skill-pill absolute top-0 left-0 px-3.5 py-1.5 sm:px-6 sm:py-3 font-bold tracking-tight rounded-full whitespace-nowrap shadow-xl border cursor-grab active:cursor-grabbing text-xs sm:text-base lg:text-lg transition-colors
                 ${isAI 
                   ? 'bg-accent border-accent text-white hover:bg-white hover:text-accent' 
                   : 'bg-card border-border text-foreground hover:border-foreground'}

@@ -78,7 +78,7 @@ export const ServicesFlashcards = () => {
                   </p>
                   
                   {/* Process Highlights */}
-                  <div className="grid grid-cols-3 gap-2.5 pt-3 border-t border-white/[0.06]">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-2.5 pt-3 border-t border-white/[0.06]">
                     <div className="flex flex-col gap-0.5">
                       <span className="text-[9px] font-mono text-accent font-bold uppercase tracking-wider">01 / FAST</span>
                       <span className="text-[11px] font-bold text-white/90">Rapid Turnaround</span>
