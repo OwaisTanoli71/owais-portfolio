@@ -19,7 +19,31 @@ const contactSchema = z.object({
   message: z.string().min(1).max(2000),
 });
 
+// A simple in-memory rate limiter (resets on server restart).
+const rateLimitMap = new Map<string, { count: number; expiresAt: number }>();
+const MAX_REQUESTS = 3;
+const WINDOW_MS = 60 * 1000; // 1 minute
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  if (!record || record.expiresAt < now) {
+    rateLimitMap.set(ip, { count: 1, expiresAt: now + WINDOW_MS });
+    return true;
+  }
+  if (record.count >= MAX_REQUESTS) {
+    return false;
+  }
+  record.count += 1;
+  return true;
+}
+
 export const POST = handle(async (req) => {
+  const ip = req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip") ?? "127.0.0.1";
+  if (!checkRateLimit(ip)) {
+    throw new ApiError(429, "rate_limited", "Too many requests. Please try again later.");
+  }
+
   const input = contactSchema.parse(await req.json());
 
   const { CONTACT_ENDPOINT } = getServerEnv();
